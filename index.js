@@ -27,14 +27,33 @@ for(let i=0;i<allBoxes.length;i++){
     count++;
 }
 
+let swap = false;
+
 container.addEventListener('click',function(e){
     
-    if(e.target.classList[0]=="chessBox"){
-        e.target.classList.add("active");
+    if(!swap){
+        if(e.target.classList[0]=="chessBox"){
+            e.target.classList.add("active");
+        }
+        else{
+            e.target.parentNode.classList.add("active");
+        }
+        swap=!swap;
     }
     else{
-        e.target.parentNode.classList.add("active");
+        swap=!swap;
+        for(let i=0;i<allBoxes.length;i++){
+            if(allBoxes[i].classList.contains("active")){
+                let childIcon = (allBoxes[i].childNodes[0]);
+                allBoxes[i].removeChild(allBoxes[i].childNodes[0]);
+                e.target.appendChild(childIcon);
+                allBoxes[i].classList.remove("active");
+            }
+        }
+        
     }
+
+
 })
 
 

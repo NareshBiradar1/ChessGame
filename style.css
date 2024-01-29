@@ -5,6 +5,7 @@
 }
 
 body{
+    flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +37,11 @@ body{
     i{
         font-size: 3rem;
     }
+}
+
+.heading{
+    color: red;
+    margin: 5rem 0;
 }
 
 .active{
